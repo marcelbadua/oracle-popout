@@ -28,7 +28,7 @@ if(!class_exists('ORACLE_POPUP_SHORTCODE'))
                     bottom: 0;
                     left: 0;
                     background-color: rgba(0, 0, 0 , 0.85);
-                    z-index: 2000;
+                    z-index: 9999;
                 }
                 #popupMessage.show{
                     display: block;
@@ -63,9 +63,13 @@ if(!class_exists('ORACLE_POPUP_SHORTCODE'))
                 
                 "use strict";
                 
-                $( document ).ready(function() {
-                    $( '#popupMessage' ).addClass('show');
-                });
+		$(document).ready(function() {
+		    var yetVisited = localStorage['visited'];
+		    if (!yetVisited) {
+    		        $("#popupMessage").addClass('show').prependTo("body");
+		        localStorage['visited'] = "yes";
+		    }
+		});
 
                 $('*[data-toggle="closePopup"]').click(function() {
                 
