@@ -36,11 +36,13 @@ if(!class_exists('ORACLE_POPUP_SHORTCODE'))
                 #popupMessage .popupBox{
                     position: relative;
                     background-color: #FFFFFF;
-                    width: 600px;
-                    min-width: 600px;
-                    min-height: 400px;
-                    margin: 120px auto 0;
+                    width: 800px;
+                    margin: 30px auto 0;
                     color: #333;
+                }
+                #popupMessage .popupBox img{
+			max-width: 100%;
+			height: auto;
                 }
                 #popupMessage .close {
                     text-align: center;
@@ -63,13 +65,14 @@ if(!class_exists('ORACLE_POPUP_SHORTCODE'))
                 
                 "use strict";
                 
-		$(document).ready(function() {
-		    var yetVisited = localStorage['visited'];
-		    if (!yetVisited) {
-    		        $("#popupMessage").addClass('show').prependTo("body");
-		        localStorage['visited'] = "yes";
-		    }
-		});
+        		$(document).ready(function() {
+        		    var yetVisited = sessionStorage['visited'];
+				console.log( yetVisited );
+        		    if (!yetVisited) {
+                        	$("#popupMessage").addClass('show').prependTo("body");
+        		        sessionStorage['visited'] = "yes";
+        		    }
+        		});
 
                 $('*[data-toggle="closePopup"]').click(function() {
                 
