@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Oracle Slider Plugin
+Plugin Name: Oracle Pop Up Plugin
 Plugin URI: https://github.com/marcelbadua
-Description: Slider Plugin
+Description: Pop up shortcode Plugin
 Version: 1.0
 Author: Marcel Badua
 Author URI: marcel.com
@@ -25,9 +25,9 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if(!class_exists('ORACLE_SLIDER'))
+if(!class_exists('ORACLE_POPUP'))
 {
-	class ORACLE_SLIDER
+	class ORACLE_POPUP
 	{
 		/**
 		 * Construct the plugin object
@@ -36,15 +36,15 @@ if(!class_exists('ORACLE_SLIDER'))
 		{
 			// Initialize Settings
 			//require_once(sprintf("%s/settings.php", dirname(__FILE__)));
-			//$ORACLE_SLIDER_Settings = new ORACLE_SLIDER_Settings();
+			//$ORACLE_POPUP_Settings = new ORACLE_POPUP_Settings();
 
 			// Register custom post types
-			require_once(sprintf("%s/control/template.php", dirname(__FILE__)));
-			$ORACLE_SLIDER_TEMPLATE = new ORACLE_SLIDER_TEMPLATE();
+			// require_once(sprintf("%s/control/template.php", dirname(__FILE__)));
+			// $ORACLE_POPUP_TEMPLATE = new ORACLE_POPUP_TEMPLATE();
 
 			//shortcode
 			require_once(sprintf("%s/control/shortcode.php", dirname(__FILE__)));
-			$ORACLE_SLIDER_SHORTCODE = new ORACLE_SLIDER_SHORTCODE();
+			$ORACLE_POPUP_SHORTCODE = new ORACLE_POPUP_SHORTCODE();
 
 			//$plugin = plugin_basename(__FILE__);
 			//add_filter("plugin_action_links_$plugin", array( $this, 'plugin_settings_link' ));
@@ -75,16 +75,16 @@ if(!class_exists('ORACLE_SLIDER'))
 		}
 
 
-	} // END class ORACLE_SLIDER
-} // END if(!class_exists('ORACLE_SLIDER'))
+	} // END class ORACLE_POPUP
+} // END if(!class_exists('ORACLE_POPUP'))
 
-if(class_exists('ORACLE_SLIDER'))
+if(class_exists('ORACLE_POPUP'))
 {
 	// Installation and uninstallation hooks
-	register_activation_hook(__FILE__, array('ORACLE_SLIDER', 'activate'));
-	register_deactivation_hook(__FILE__, array('ORACLE_SLIDER', 'deactivate'));
+	register_activation_hook(__FILE__, array('ORACLE_POPUP', 'activate'));
+	register_deactivation_hook(__FILE__, array('ORACLE_POPUP', 'deactivate'));
 
 	// instantiate the plugin class
-	$wp_plugin_template = new ORACLE_SLIDER();
+	$wp_plugin_template = new ORACLE_POPUP();
 
 }
